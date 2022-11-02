@@ -1,0 +1,50 @@
+
+
+   (Folllow local mongo for full instruction)
+
+
+
+1. show dbs    check for How many data base on index.
+2. show collecton    check for how many data collection on database.
+3. db.createCollection('users') example create collection on database.
+4. db.users.findOne(ObjectId(jskcjcjsdc)) get single data from data base collecton
+5. db.users.find()  get all data from collection
+
+6. db.users.aggregate([{$lookup : {from : "product", localField : "productList", foreignList : "_id", as : "data"}}]) 
+get data for customer whats product buy from
+
+7. db.product.aggregate([ { $lookup : {from : "users", localField : "_id", foreignList : "productList", as : "customer" } } ]) 
+for chek those customer whats product buy from
+
+8. const users = await User.find({ $and : [{ name : "Achem"}, { location : "Dhaka"}] }) find by location and name example code
+
+9. const users = await User.find({ $or : [{ location : "Dhaka"}, { gender: "Female"}] }) find by location and who is female or male specify
+
+
+      // here is two methood for data save an example the top one is automatic data save in index
+      // and another one will need to save manually an example code
+
+10.         const user1 = new User({
+            name : "Nur Amin",
+            email : "nil.somudra61@gmail.com",
+            age : 32,
+            location : "Bogura",
+            gender : "Male",
+            cell : "01303292586"
+     })
+await.User.save() if you want data save manually.
+
+
+11. const user = await User.findById('633c2c3c078efbb23f44214b').populate('foods') find foods array in target ids
+
+12. const user = await User.findByGender('Female') find gender by manual static methood query like this
+
+13. const user = await User.findById
+    ('633c2c3c078efbb23f44214b').getFoods()
+    console.log(user.myFood())
+    find by specify ids name and food query methood like this
+
+14.  const user = await User.findById
+    ('633c2c3c078efbb23f44214b') 
+    console.log(user.welcomeMsg) this is custom property working and coding pattern like this
+
